@@ -7,7 +7,10 @@
     "frontend:format:check": "npm --prefix frontend run format:check",
     "frontend:tools:start": "npm --prefix frontend run tools:start",
     "frontend:tools:stop": "npm --prefix frontend run tools:stop",
-    "frontend:tools:stop:win": "npm --prefix frontend run tools:stop:win"
+    "frontend:tools:stop:win": "npm --prefix frontend run tools:stop:win",
+    "tools:start": "npm --prefix frontend run tools:start",
+    "tools:stop": "npm --prefix frontend run tools:stop",
+    "tools:stop:win": "npm --prefix frontend run tools:stop:win"
   },
   "tools": {
     "start": "npm run frontend:tools:start",
