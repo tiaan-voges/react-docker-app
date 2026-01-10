@@ -4,6 +4,7 @@ const reactHooks = require("eslint-plugin-react-hooks");
 const jsxA11y = require("eslint-plugin-jsx-a11y");
 const importPlugin = require("eslint-plugin-import");
 const globals = require("globals");
+const prettier = require("eslint-config-prettier");
 
 module.exports = [
   js.configs.recommended,
@@ -76,4 +77,5 @@ module.exports = [
       "no-console": "warn",
     },
   },
+  prettier,
 ];
