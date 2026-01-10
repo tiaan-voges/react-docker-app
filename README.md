@@ -1,31 +1,35 @@
 # 🚀 React + Vite (frontend)
 
-This folder contains a minimal React app scaffolded for Vite with ESLint configured.
+This repository contains a minimal React app (Vite) with ESLint configured.
 
-What's included 🧩
+What's included
 
-- ✅ Vite + React (client)
-- ✅ ESLint rules for React and hooks
+- Vite + React
+- ESLint rules for React + hooks
 
-Prerequisites ⚙️
+Prerequisites
 
-- Node.js (LTS) installed
-- npm (bundled with Node) or Yarn
+- Node.js (LTS) and npm (or Yarn)
 - Docker & Docker Compose (optional)
 
-Install required modules 🛠️
+Installation
 
-1. Install root dev tools (optional — only if you want workspace-level tools):
+1. (Optional) Install workspace dev tools from the repo root:
 
 ```bash
 npm install
 ```
 
-2. Install frontend dependencies (required to run the app):
+2. Install frontend dependencies:
 
 ```bash
-cd frontend
-npm install
+npm --prefix frontend install
+```
+
+3. Or run both installs from the repo root:
+
+```bash
+npm run install:all
 ```
 
 Common commands ✨
