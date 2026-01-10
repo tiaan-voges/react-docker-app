@@ -112,12 +112,14 @@ Get-Process node | Where-Object { $_.Path -like '*eslint*' -or $_.Path -like '*p
 Notes about the tooling scripts 🔧
 
 - `tools:start` uses `concurrently` to run two `nodemon` watchers:
+
   - `nodemon` watches `src/**` for changes (extensions: `js,jsx,css`).
   - On change one watcher runs `npm run lint`, the other runs `npx prettier --write .`.
 
 - Why `nodemon`? ESLint removed the `--watch` CLI option, so we use `nodemon` to re-run the lint/format commands on file changes.
 
 - Caveats:
+
   - Each change re-runs the full `eslint` command as configured; consider using `lint-staged` for committing flow or customizing the watcher to limit scope.
   - `prettier --write .` will format matched files each time; you may prefer running `prettier` only on changed files in CI or with `lint-staged`.
 
