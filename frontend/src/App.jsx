@@ -1,17 +1,9 @@
-import { useState } from "react";
-
-function App() {
-  const [count, setCount] = useState(0);
-
+export default function App() {
   return (
-    <>
-      <h1>Counter</h1>
-      <p>{count}</p>
-      <button onClick={() => setCount(count + 1)}>
-        Increase
-      </button>
-    </>
+    <div className="min-h-screen flex items-center justify-center bg-slate-900">
+      <h1 className="text-4xl font-bold text-emerald-400">
+        Tailwind is working 🚀
+      </h1>
+    </div>
   );
 }
-
-export default App;
