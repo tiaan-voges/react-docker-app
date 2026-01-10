@@ -69,6 +69,14 @@ Start / Stop tooling (OS-specific) 🧰
 
 Start the watcher pair (same on all OSes):
 
+From the repository root (recommended):
+
+```bash
+npm run tools:start
+```
+
+Or from the `frontend` folder:
+
 ```bash
 cd frontend
 npm run tools:start
@@ -103,9 +111,19 @@ Get-Process node | Where-Object { $_.Path -like '*eslint*' -or $_.Path -like '*p
 
 Notes about the tooling scripts 🔧
 
-- `tools:start` uses the `concurrently` package to run `eslint --watch` and Prettier together.
-- `tools:stop` uses `pkill` (macOS/Linux); Windows does not have `pkill` by default — use `Ctrl+C` or PowerShell to stop processes.
-- Install dev dependencies (including `concurrently`) by running `npm install` inside `frontend`.
+- `tools:start` uses `concurrently` to run two `nodemon` watchers:
+  - `nodemon` watches `src/**` for changes (extensions: `js,jsx,css`).
+  - On change one watcher runs `npm run lint`, the other runs `npx prettier --write .`.
+
+- Why `nodemon`? ESLint removed the `--watch` CLI option, so we use `nodemon` to re-run the lint/format commands on file changes.
+
+- Caveats:
+  - Each change re-runs the full `eslint` command as configured; consider using `lint-staged` for committing flow or customizing the watcher to limit scope.
+  - `prettier --write .` will format matched files each time; you may prefer running `prettier` only on changed files in CI or with `lint-staged`.
+
+- `tools:stop` uses `pkill` (macOS/Linux). On Windows use `npm run tools:stop:win` or stop the terminal with `Ctrl+C`.
+
+- Install dev dependencies (including `concurrently` and `nodemon`) by running `npm install` inside `frontend`.
 
 One-line commands (from repository root) 🔗
 
