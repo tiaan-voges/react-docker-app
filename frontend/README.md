@@ -32,7 +32,7 @@ Common commands ✨
 
 - ▶️ Start development server (from `frontend`):
 
-```bash
+````bash
 What's included
 
 - Vite + React
@@ -49,7 +49,7 @@ Installation
 
 ```bash
 npm install
-```
+````
 
 2. Install frontend dependencies:
 
@@ -123,5 +123,3 @@ Development note
 
 - From repo root: `npm run tools:start` to run the lint + format watchers.
 - Ensure frontend deps are installed: `npm --prefix frontend install`.
-
-
