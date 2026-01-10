@@ -203,3 +203,21 @@ Where to go next 📌
 License 📝
 
 - MIT (or add your preferred license)
+
+Development note
+
+- To run the lint + format watchers locally from the repository root run:
+
+```bash
+npm run tools:start
+```
+
+- Ensure frontend dependencies are installed first (from repo root):
+
+```bash
+npm --prefix frontend install
+```
+
+These commands were added to help quickly start the ESLint and Prettier
+watchers used during development.
+
