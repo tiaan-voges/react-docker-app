@@ -1,19 +1,19 @@
-# React + Vite (frontend)
+# 🚀 React + Vite (frontend)
 
 This folder contains a minimal React app scaffolded for Vite with ESLint configured.
 
-What's included
+What's included 🧩
 
-- Vite + React (client)
-- ESLint rules for React and hooks
+- ✅ Vite + React (client)
+- ✅ ESLint rules for React and hooks
 
-Prerequisites
+Prerequisites ⚙️
 
 - Node.js (LTS) installed
 - npm (bundled with Node) or Yarn
 - Docker & Docker Compose (optional)
 
-Install required modules
+Install required modules 🛠️
 
 1. Install root dev tools (optional — only if you want workspace-level tools):
 
@@ -28,44 +28,44 @@ cd frontend
 npm install
 ```
 
-Common commands
+Common commands ✨
 
-- Start development server (from `frontend`):
+- ▶️ Start development server (from `frontend`):
 
 ```bash
 cd frontend
 npm run dev
 ```
 
-- Run the linter:
+- 🔎 Run the linter:
 
 ```bash
 cd frontend
 npm run lint
 ```
 
-- Automatically fix lintable issues:
+- 🛠️ Automatically fix lintable issues:
 
 ```bash
 cd frontend
 npm run lint:fix
 ```
 
-- Build for production:
+- 📦 Build for production:
 
 ```bash
 cd frontend
 npm run build
 ```
 
-- Preview production build locally:
+- ▶️ Preview production build locally:
 
 ```bash
 cd frontend
 npm run preview
 ```
 
-Start / Stop tooling (OS-specific)
+Start / Stop tooling (OS-specific) 🧰
 
 Start the watcher pair (same on all OSes):
 
@@ -74,9 +74,9 @@ cd frontend
 npm run tools:start
 ```
 
-macOS
+macOS 🍎
 
-- Stop the watchers using the provided script (uses `pkill`):
+- 🛑 Stop the watchers using the provided script (uses `pkill`):
 
 ```bash
 cd frontend
@@ -85,12 +85,12 @@ npm run tools:stop
 
 - Alternatively, stop the terminal running `tools:start` with `Ctrl+C`.
 
-Linux
+Linux 🐧
 
-- `tools:stop` also works on many Linux distros (uses `pkill`).
+- 🛑 `tools:stop` also works on many Linux distros (uses `pkill`).
 - Or stop with `Ctrl+C` in the terminal where `tools:start` is running.
 
-Windows
+Windows 🪟
 
 - If you launched the watchers in a terminal (PowerShell, Command Prompt, or Git Bash), stop them with `Ctrl+C`.
 - If you need to kill processes from PowerShell, you can list Node processes and stop them (use with care):
@@ -101,7 +101,7 @@ Get-Process node | Where-Object { $_.Path -like '*eslint*' -or $_.Path -like '*p
 
 - A safer Windows workflow is to run `tools:start` in a dedicated terminal and stop with `Ctrl+C` or closing that terminal.
 
-Notes about the tooling scripts
+Notes about the tooling scripts 🔧
 
 - `tools:start` uses the `concurrently` package to run `eslint --watch` and Prettier together.
 - `tools:stop` uses `pkill` (macOS/Linux); Windows does not have `pkill` by default — use `Ctrl+C` or PowerShell to stop processes.
@@ -154,10 +154,10 @@ Notes
 - ESLint configuration lives in `frontend/eslint.config.cjs`.
 - If your editor supports "format on save" or ESLint code actions, enable `source.fixAll.eslint` for automatic fixes.
 
-Where to go next
+Where to go next 📌
 
 - Edit `frontend/src/App.jsx` and `frontend/src/main.jsx` to modify the app.
 
-License
+License 📝
 
 - MIT (or add your preferred license)
