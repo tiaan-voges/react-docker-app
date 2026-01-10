@@ -11,6 +11,7 @@
     "preview": "vite preview",
     "tools:start": "concurrently \"npm run lint -- --watch\" \"npx prettier --write --watch .\"",
     "tools:stop": "pkill -f \"eslint|prettier\" || true",
+    "tools:stop:win": "powershell -Command \"Get-Process node | Where-Object { $_.Path -like '*eslint*' -or $_.Path -like '*prettier*' } | Stop-Process\" || true",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "prepare": "husky"

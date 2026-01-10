@@ -1,4 +1,14 @@
 {
+  "scripts": {
+    "frontend:install": "npm --prefix frontend install",
+    "frontend:dev": "npm --prefix frontend run dev",
+    "frontend:lint": "npm --prefix frontend run lint",
+    "frontend:format": "npm --prefix frontend run format",
+    "frontend:format:check": "npm --prefix frontend run format:check",
+    "frontend:tools:start": "npm --prefix frontend run tools:start",
+    "frontend:tools:stop": "npm --prefix frontend run tools:stop",
+    "frontend:tools:stop:win": "npm --prefix frontend run tools:stop:win"
+  },
   "devDependencies": {
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
