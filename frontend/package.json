@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "preview": "vite preview",
-    "tools:start": "concurrently \"npm run lint -- --watch\" \"npx prettier --write --watch .\"",
+    "tools:start": "concurrently \"nodemon --watch src --ext js,jsx,css --exec \\\"npm run lint\\\"\" \"nodemon --watch src --ext js,jsx,css --exec \\\"npx prettier --write .\\\"\"",
     "tools:stop": "pkill -f \"eslint|prettier\" || true",
     "tools:stop:win": "powershell -Command \"Get-Process node | Where-Object { $_.Path -like '*eslint*' -or $_.Path -like '*prettier*' } | Stop-Process\" || true",
     "format": "prettier --write .",
@@ -38,6 +38,7 @@
     "postcss": "^8.5.6",
     "prettier": "^3.7.4",
     "tailwindcss": "^4.1.18",
+    "nodemon": "^2.0.22",
     "vite": "^7.2.4"
   },
   "editor.codeActionsOnSave": {

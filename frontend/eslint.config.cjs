@@ -13,22 +13,20 @@ module.exports = [
     files: ["**/*.{js,jsx}"],
 
     languageOptions: {
-  ecmaVersion: "latest",
-  sourceType: "module",
+      ecmaVersion: "latest",
+      sourceType: "module",
 
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
+
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
     },
-  },
-
-  globals: {
-    ...globals.browser,
-    ...globals.node,
-  },
-},
-
-
 
     settings: {
       react: {
