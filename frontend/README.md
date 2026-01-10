@@ -107,7 +107,7 @@ Notes about the tooling scripts 🔧
 - `tools:stop` uses `pkill` (macOS/Linux); Windows does not have `pkill` by default — use `Ctrl+C` or PowerShell to stop processes.
 - Install dev dependencies (including `concurrently`) by running `npm install` inside `frontend`.
 
-One-line commands (from repository root)
+One-line commands (from repository root) 🔗
 
 You can run these from the repo root so you don't need to `cd` into `frontend`.
 
@@ -123,22 +123,22 @@ npm run frontend:install
 npm run frontend:dev
 ```
 
-- Start ESLint + Prettier watchers:
+- Start ESLint + Prettier watchers (recommended — runs from repo root):
 
 ```bash
-npm run frontend:tools:start
+npm run tools:start
 ```
 
 - Stop watchers (macOS / most Linux):
 
 ```bash
-npm run frontend:tools:stop
+npm run tools:stop
 ```
 
 - Stop watchers (Windows PowerShell):
 
 ```powershell
-npm run frontend:tools:stop:win
+npm run tools:stop:win
 ```
 
 Using Docker Compose (optional)

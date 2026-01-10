@@ -9,6 +9,11 @@
     "frontend:tools:stop": "npm --prefix frontend run tools:stop",
     "frontend:tools:stop:win": "npm --prefix frontend run tools:stop:win"
   },
+  "tools": {
+    "start": "npm run frontend:tools:start",
+    "stop": "npm run frontend:tools:stop",
+    "stop:win": "npm run frontend:tools:stop:win"
+  },
   "devDependencies": {
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
