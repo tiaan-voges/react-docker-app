@@ -6,6 +6,7 @@ export default function SearchableSelect({
   options,
   value,
   onChange,
+  theme,
   disabled = false,
   placeholder = "Type to search...",
 }) {
@@ -72,12 +73,17 @@ export default function SearchableSelect({
   }
 
   return (
-    <div className="searchable-select">
-      <label htmlFor={id}>{label}</label>
+    <div className="relative">
+      <label
+        htmlFor={id}
+        className={`mb-2 block text-sm font-semibold ${theme.inputLabel}`}
+      >
+        {label}
+      </label>
       <input
         id={id}
         type="text"
-        className="searchable-input"
+        className={`w-full rounded-xl border px-3 py-2.5 text-sm outline-none transition focus:ring-2 disabled:cursor-not-allowed disabled:opacity-60 ${theme.inputField} ${theme.inputFocus}`}
         value={query}
         onInput={handleInput}
         onBlur={handleBlur}
@@ -89,15 +95,19 @@ export default function SearchableSelect({
       />
 
       {isOpen && !disabled && visibleOptions.length > 0 && (
-        <ul className="search-suggestions" role="listbox" aria-label={label}>
+        <ul
+          className={`absolute z-20 mt-1.5 max-h-64 w-full overflow-y-auto rounded-xl border p-1 shadow-xl shadow-black/35 ${theme.suggestions}`}
+          role="listbox"
+          aria-label={label}
+        >
           {visibleOptions.map((option) => (
             <li key={option.value}>
               <button
                 type="button"
                 className={
                   option.value === value
-                    ? "search-suggestion active"
-                    : "search-suggestion"
+                    ? `w-full rounded-lg border px-2.5 py-2 text-left text-sm transition ${theme.suggestionActive}`
+                    : `w-full rounded-lg border border-transparent bg-transparent px-2.5 py-2 text-left text-sm transition ${theme.suggestionIdle} ${theme.suggestionHover}`
                 }
                 onMouseDown={() => handleSuggestionSelect(option)}
               >

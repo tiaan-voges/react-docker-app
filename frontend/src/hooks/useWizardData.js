@@ -8,6 +8,8 @@ export function useWizardData() {
   const [selectedHpId, setSelectedHpId] = useState("");
   const [hpStatus, setHpStatus] = useState("loading");
   const [hpError, setHpError] = useState("");
+  const [selectedWizardRace, setSelectedWizardRace] = useState("");
+  const [selectedWizardHouse, setSelectedWizardHouse] = useState("");
 
   useEffect(() => {
     let ignore = false;
@@ -54,6 +56,58 @@ export function useWizardData() {
     [hpCharacters, selectedHpId],
   );
 
+  const wizardRaceOptions = useMemo(() => {
+    const races = new Set();
+
+    for (const character of hpCharacters) {
+      const species = (character.species || "").trim();
+      if (species) races.add(species);
+    }
+
+    return Array.from(races).sort((a, b) => a.localeCompare(b));
+  }, [hpCharacters]);
+
+  useEffect(() => {
+    if (wizardRaceOptions.length === 0) return;
+    if (wizardRaceOptions.includes(selectedWizardRace)) return;
+
+    setSelectedWizardRace(
+      wizardRaceOptions.includes("human") ? "human" : wizardRaceOptions[0],
+    );
+  }, [wizardRaceOptions, selectedWizardRace]);
+
+  const wizardsByRace = useMemo(() => {
+    if (!selectedWizardRace) return hpCharacters;
+    return hpCharacters.filter((character) => character.species === selectedWizardRace);
+  }, [hpCharacters, selectedWizardRace]);
+
+  const wizardHouseOptions = useMemo(() => {
+    const houses = new Set();
+
+    for (const character of wizardsByRace) {
+      const house = (character.house || "").trim();
+      if (house && house !== "Unknown") houses.add(house);
+    }
+
+    return Array.from(houses).sort((a, b) => a.localeCompare(b));
+  }, [wizardsByRace]);
+
+  useEffect(() => {
+    if (wizardHouseOptions.length === 0) {
+      if (selectedWizardHouse !== "") setSelectedWizardHouse("");
+      return;
+    }
+
+    if (selectedWizardHouse === "") return;
+    if (wizardHouseOptions.includes(selectedWizardHouse)) return;
+    setSelectedWizardHouse("");
+  }, [wizardHouseOptions, selectedWizardHouse]);
+
+  const wizardsByRaceAndHouse = useMemo(() => {
+    if (!selectedWizardHouse) return wizardsByRace;
+    return wizardsByRace.filter((character) => character.house === selectedWizardHouse);
+  }, [wizardsByRace, selectedWizardHouse]);
+
   const wizardSpotlightChoices = useMemo(() => {
     const spotlight = HP_SPOTLIGHT.map((name) =>
       hpCharacters.find((character) => character.name === name),
@@ -83,5 +137,13 @@ export function useWizardData() {
     selectedWizard,
     wizardSpotlightChoices,
     wizardPower,
+    wizardRaceOptions,
+    selectedWizardRace,
+    setSelectedWizardRace,
+    wizardHouseOptions,
+    selectedWizardHouse,
+    setSelectedWizardHouse,
+    wizardsByRace,
+    wizardsByRaceAndHouse,
   };
 }
